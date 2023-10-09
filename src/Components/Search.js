@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const Search = ({search,setSearch,searchFlag,fetchData,handleSearch}) => {
-
-
+const Search = ({ search, setSearch, searchFlag, fetchData, handleSearch }) => {
   return (
     <div>
-        <div className="searchbar">
+      <div className="searchbar">
         <input
           type="text"
           placeholder="Search Title"
@@ -14,12 +12,12 @@ const Search = ({search,setSearch,searchFlag,fetchData,handleSearch}) => {
         />
         {!searchFlag ? (
           <button onClick={handleSearch}>Search</button>
-          ) : (
-            <button onClick={fetchData}>X</button>
+        ) : (
+          <button onClick={fetchData}>X</button>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

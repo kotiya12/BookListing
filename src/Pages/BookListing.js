@@ -26,21 +26,21 @@ const BookListing = () => {
   const fetchData = async () => {
     const res = await bookApi.get("/books");
     dispatch(fetchBook(res.data));
-    setSearch("")
-    setSearchFlag(false)
+    setSearch("");
+    setSearchFlag(false);
   };
 
   const handleSort = () => {
     setSortDirection(sortDirection === "asc" ? "desc" : "asc");
   };
-  
+
   useEffect(() => {
     fetchData();
   }, []);
 
-  useEffect(()=>{
-    handleFilter()
-  },[filterPages])
+  useEffect(() => {
+    handleFilter();
+  }, [filterPages]);
 
   useEffect(() => {
     const sortedBooks = [...books].sort((a, b) =>
@@ -52,10 +52,9 @@ const BookListing = () => {
   }, [sortDirection]);
 
   useEffect(() => {
-    setBooks
-    (items.data);
+    setBooks(items.data);
   }, [items]);
- 
+
   const handleSearch = () => {
     let filteredBooks = items.data;
     if (search) {
@@ -63,11 +62,11 @@ const BookListing = () => {
         book.title.toLowerCase().includes(search.toLowerCase())
       );
     }
-    setSearchFlag(true)
+    setSearchFlag(true);
     setBooks(filteredBooks);
-  }
+  };
 
-  const handleFilter=()=>{
+  const handleFilter = () => {
     let filteredBooks = items.data;
 
     if (filterPages === "<1000") {
@@ -75,8 +74,7 @@ const BookListing = () => {
     } else if (filterPages === ">1000") {
       filteredBooks = filteredBooks.filter((book) => book.pages >= 1000);
     }
-    console.log(filteredBooks);
-    setCurrentPage(0)
+    setCurrentPage(0);
     setBooks(filteredBooks);
   };
 
@@ -90,35 +88,28 @@ const BookListing = () => {
 
   return (
     <div className="container">
-       <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h4" align="center" gutterBottom>
         BOOK LISTING
       </Typography>
       <Search
-       search={search}
-       setSearch={setSearch}
-       handleSearch={handleSearch}
-       fetchData={fetchData}
-       searchFlag={searchFlag}
-       />
-    <Heading 
-    filterPages={filterPages}
-    setFilterPages={setFilterPages}
-    />
-    <BookTable
-    books={books}
-    handleSort={handleSort}
-    handleEdit={handleEdit}
-    currentPage={currentPage}
-    handleChangePage={handleChangePage}
-    sortDirection={sortDirection}
-    />
+        search={search}
+        setSearch={setSearch}
+        handleSearch={handleSearch}
+        fetchData={fetchData}
+        searchFlag={searchFlag}
+      />
+      <Heading filterPages={filterPages} setFilterPages={setFilterPages} />
+      <BookTable
+        books={books}
+        handleSort={handleSort}
+        handleEdit={handleEdit}
+        currentPage={currentPage}
+        handleChangePage={handleChangePage}
+        sortDirection={sortDirection}
+      />
       {editingBook && (
-        <EditBookModal
-          book={editingBook}
-          onClose={handleCloseEdit}
-        />
+        <EditBookModal book={editingBook} onClose={handleCloseEdit} />
       )}
-    
     </div>
   );
 };

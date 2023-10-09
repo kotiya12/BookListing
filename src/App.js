@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import BookListing from './Pages/BookListing';
 import { Route, Routes } from 'react-router-dom';
