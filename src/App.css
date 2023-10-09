@@ -1,38 +1,133 @@
-.App {
+.container{
+  min-width: 1250px;
+  margin: 0 auto; 
+  text-align: center;
+padding: 20px;
+  height: 100vh; 
+
+}
+
+.book-list-item {
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5; 
+  width: 550px;
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 100px;
+  /* text-decoration: none; */
+}
+.heading-right{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap:10px;
+}
+.addbtn{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 2px;
+}
+
+.book-list{
+  list-style: none;
+  text-align: center;
+
+}
+
+.book-title {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.list-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.book-year{
+  color: gray;
+}
+.book-author {
+  color: blue;
+  font-size: 12px;
+}
+.book-heading{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: gray; /* Blue background color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.searchbar{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+
+  
 }
 
-.App-link {
-  color: #61dafb;
+.heading{
+  
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  /* justify-items: space-between; */
+  
+  margin-top: 30px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.edit-modal {
+  width: 30%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+.edit-btn {
+ display: flex;
+ justify-content: flex-end;
+ gap: 10px;
+ margin-top: 20px;
+ margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 768px) {
+  .responsive-table {
+    overflow-x: auto; /* Add horizontal scroll for small screens */
   }
-  to {
-    transform: rotate(360deg);
+  .responsive-table table {
+    width: 100%; /* Make the table take up the full width of the container */
   }
+}
+
+
+.custom-table-sort-label .MuiTableSortLabel-icon {
+  color: white; /* Set the icon color to white */
+}
+.custom-select:focus {
+  border-color: black;
+}
+
+.custom-icon {
+  color: black; /* Change the color of the icon when focused */
 }
